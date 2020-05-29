@@ -19,12 +19,26 @@ export default {
 	data() {
 		return {
 			filled: false,
-			colorIndex: null,
+			courseIndex: null,
+			course: { name: "" },
 		}
 
 
 	},
 
+	computed: {
+		courseExists: function() {
+			try {
+				return this.courses.includes(this.course);
+			}
+			catch(err) {
+				return false
+			}
+
+		},
+
+
+	},
 
 
 	methods: {
@@ -51,18 +65,19 @@ export default {
 		},
 
 		pickColor: function() {
-			this.colorIndex = (1 + this.courses.indexOf(this.selectedCourse));
+			this.courseIndex = (this.courses.indexOf(this.selectedCourse));
+			this.course = this.courses[this.courseIndex];
 		},
 
 		applyColor: function() {
-
 			return {
-				'active1': this.filled && this.colorIndex===1,
-				'active2': this.filled && this.colorIndex===2,
-				'active3': this.filled && this.colorIndex===3,
-				'active4': this.filled && this.colorIndex===4,
-				'active5': this.filled && this.colorIndex===5,
-				'active6': this.filled && this.colorIndex===6,
+				'active0': this.filled && this.courseIndex===0,
+				'active1': this.filled && this.courseIndex===1,
+				'active2': this.filled && this.courseIndex===2,
+				'active3': this.filled && this.courseIndex===3,
+				'active4': this.filled && this.courseIndex===4,
+				'active5': this.filled && this.courseIndex===5,
+				'removed': this.filled && !this.courseExists,
 
 			}
 
@@ -77,21 +92,26 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.active1 {
+.active0 {
 	background-color: #b48ead;
 }
 
-.active2 {
+.active1 {
 	background-color: #a3be8c;
 }
-.active3 {
+.active2 {
 	background-color: #ebcb8b;
 }
-.active4 {
+.active3 {
 	background-color: #d08770;
 }
-.active5 {
+.active4 {
 	background-color: #bf616a;
+}
+
+.removed {
+	background-color: initial;
+
 }
 
 div {
