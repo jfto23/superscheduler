@@ -1,5 +1,5 @@
 <template>
-  <div @mouseover="fillSlot" :class="{ active: filled }">
+  <div @mousedown="fillFirstSlot" @mouseover="fillSlot" :class="{ active: filled }">
 		.
   </div>
 </template>
@@ -22,11 +22,19 @@ export default {
 
 
 	methods: {
-		fillSlot: function(){
+		fillFirstSlot: function() {
+			if (this.filled) {
+				this.filled = false;
+			}
+			else {
+				this.filled = true;
+			}
+		},
+		fillSlot: function() {
 			if (this.dragToggle) {
 				this.filled = !this.filled;
 			}
-		}
+		},
 	}
 
 	
