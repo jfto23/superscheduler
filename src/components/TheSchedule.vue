@@ -1,6 +1,8 @@
 <template>
   <div class=schedule>
-		<table @mousedown="dragToggleOn" @mouseup="dragToggleOff">
+		<table @mousedown.left="addToggleOn" @mouseup.left="addToggleOff"
+		@mousedown.right="removeToggleOn" @mouseup.right="removeToggleOff"
+		@contextmenu.prevent>
 			<thead>
 				<tr>
 					<th></th>
@@ -16,13 +18,14 @@
 					<td 
 						v-for="(day, day_index) in week"
 						:key="day_index">
-						<ScheduleSlot :dragToggle=dragToggle></ScheduleSlot>	
+						<ScheduleSlot :addToggle=addToggle :removeToggle=removeToggle></ScheduleSlot>	
 					</td>
 				</tr>
 
 			</tbody>
 		</table>
-
+		{{ addToggle }}
+		{{ removeToggle }}
   </div>
 </template>
 
@@ -38,21 +41,29 @@ export default {
 		return {
 			week: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
 			times: [8,9,11,12,13,14,15,16,17],
-			dragToggle: false,
+			addToggle: false,
+			removeToggle: false,
 		}
 
 	},
 
 
 	methods: {
-		dragToggleOn: function() {
-			this.dragToggle = true;
+		addToggleOn: function() {
+			this.addToggle = true;
 		},
 
-		dragToggleOff: function() {
-			this.dragToggle = false;
+		addToggleOff: function() {
+			this.addToggle = false;
 		},
 
+		removeToggleOn: function() {
+			this.removeToggle = true;
+		},
+
+		removeToggleOff: function() {
+			this.removeToggle = false;
+		},
 
 	}
 
@@ -72,12 +83,8 @@ table, td, th {
 }
 
 
-th, td {
-	margin-right: 20px;
-	margin-left: 20px;
-}
-
 table {
+		table-layout: fixed;
 		width: 100%;
 		border-collapse: collapse;
     -webkit-touch-callout: none;
@@ -86,6 +93,9 @@ table {
     -moz-user-select: none;
     -ms-user-select: none;
 		user-select: none;
+}
+td{
+	width: 25%;
 }
 
 .hour {

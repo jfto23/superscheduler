@@ -1,5 +1,6 @@
 <template>
-  <div @mousedown="fillFirstSlot" @mouseover="fillSlot" :class="{ active2: filled }">
+  <div @mousedown.left="fillFirstSlot" @mouseover="fillSlot"
+	@mousedown.right="unfillFirstSlot" :class="{ active2: filled }">
   </div>
 </template>
 
@@ -8,7 +9,8 @@ export default {
   name: 'ScheduleSlot',
 
 	props: {
-		dragToggle: Boolean,
+		addToggle: Boolean,
+		removeToggle: Boolean,
 	},
 
 	data() {
@@ -22,17 +24,20 @@ export default {
 
 	methods: {
 		fillFirstSlot: function() {
-			if (this.filled) {
-				this.filled = false;
-			}
-			else {
-				this.filled = true;
-			}
+			this.filled = true;
 		},
 		fillSlot: function() {
-			if (this.dragToggle) {
-				this.filled = !this.filled;
+			if (this.addToggle) {
+				this.filled = true;
 			}
+
+			else if (this.removeToggle) {
+				this.filled = false;
+			}
+		},
+
+		unfillFirstSlot: function() {
+			this.filled = false;
 		},
 	}
 
@@ -64,7 +69,7 @@ export default {
 }
 
 div {
-	height: 12px;
+	height: 15px;
 }
 
 h3 {
