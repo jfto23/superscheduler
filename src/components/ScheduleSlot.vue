@@ -1,6 +1,5 @@
 <template>
-  <div @mousedown="fillFirstSlot" @mouseover="fillSlot" :class="{ active: filled }">
-		.
+  <div @mousedown="fillFirstSlot" @mouseover="fillSlot" :class="{ active2: filled }">
   </div>
 </template>
 
@@ -44,8 +43,28 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.active {
-	background-color: green;
+.active1 {
+	background-color: #b48ead;
+}
+
+.active2 {
+	background-color: #a3be8c;
+}
+.active3 {
+	background-color: #ebcb8b;
+}
+.active4 {
+	background-color: #d08770;
+}
+.active5 {
+	background-color: #bf616a;
+}
+.active6 {
+	background-color: #3B4252;
+}
+
+div {
+	height: 12px;
 }
 
 h3 {

@@ -11,8 +11,8 @@
 			</thead>
 			<tbody>
 				<tr v-for="time_index in 40" :key="time_index">
-					<td v-if="(time_index-1) % 4 === 0" rowspan="4">
-						{{ 8 +((time_index-1) / 4)}}</td>
+					<td class=hour v-if="(time_index-1) % 4 === 0" rowspan="4">
+						{{ 8 +((time_index-1) / 4)}}h</td>
 					<td 
 						v-for="(day, day_index) in week"
 						:key="day_index">
@@ -67,17 +67,29 @@ export default {
 	width: 50%;
 }
 
-table, th, td {
-	border: 1px solid white;
+table, td, th {
+	border: 1px solid #4C566A;
+}
+
+
+th, td {
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 table {
+		width: 100%;
+		border-collapse: collapse;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 		user-select: none;
+}
+
+.hour {
+	width: 10%;
 }
 
 
