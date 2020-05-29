@@ -17,8 +17,9 @@
 						{{ 8 +((time_index-1) / 4)}}h</td>
 					<td 
 						v-for="(day, day_index) in week"
-						:key="day_index">
-						<ScheduleSlot :addToggle=addToggle :removeToggle=removeToggle></ScheduleSlot>	
+						:key="day_index"
+						>
+						<ScheduleSlot :courses=courses :selectedCourse=selectedCourse :addToggle=addToggle :removeToggle=removeToggle></ScheduleSlot>	
 					</td>
 				</tr>
 
@@ -35,6 +36,11 @@ export default {
   name: 'TheSchedule',
 	components: {
 		ScheduleSlot,
+	},
+
+	props: {
+		selectedCourse: Object,
+		courses: Array,
 	},
 
 	data() {
@@ -102,6 +108,9 @@ td{
 	width: 10%;
 }
 
+tr:nth-child(even) {
+	background-color: #3b4252;
+}
 
 h3 {
   margin: 40px 0 0;

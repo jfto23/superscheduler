@@ -1,6 +1,7 @@
 <template>
-  <div @mousedown.left="fillFirstSlot" @mouseover="fillSlot"
-	@mousedown.right="unfillFirstSlot" :class="{ active2: filled }">
+  <div @mousedown.left="fillFirstSlot" @mouseover="changeSlot"
+		@mousedown.right="unfillFirstSlot" :class="applyColor()">
+
   </div>
 </template>
 
@@ -11,34 +12,62 @@ export default {
 	props: {
 		addToggle: Boolean,
 		removeToggle: Boolean,
+		selectedCourse: null,
+		courses: Array,
 	},
 
 	data() {
 		return {
 			filled: false,
+			colorIndex: null,
 		}
 
 
 	},
 
 
+
 	methods: {
 		fillFirstSlot: function() {
 			this.filled = true;
+			this.pickColor();
 		},
-		fillSlot: function() {
+		changeSlot: function() {
 			if (this.addToggle) {
 				this.filled = true;
+				this.pickColor();
 			}
 
 			else if (this.removeToggle) {
 				this.filled = false;
+				this.pickColor();
 			}
+
+
 		},
 
 		unfillFirstSlot: function() {
 			this.filled = false;
 		},
+
+		pickColor: function() {
+			this.colorIndex = (1 + this.courses.indexOf(this.selectedCourse));
+		},
+
+		applyColor: function() {
+
+			return {
+				'active1': this.filled && this.colorIndex===1,
+				'active2': this.filled && this.colorIndex===2,
+				'active3': this.filled && this.colorIndex===3,
+				'active4': this.filled && this.colorIndex===4,
+				'active5': this.filled && this.colorIndex===5,
+				'active6': this.filled && this.colorIndex===6,
+
+			}
+
+		}
+
 	}
 
 	
@@ -63,9 +92,6 @@ export default {
 }
 .active5 {
 	background-color: #bf616a;
-}
-.active6 {
-	background-color: #3B4252;
 }
 
 div {

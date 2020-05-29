@@ -14,7 +14,7 @@
 		</ul>
 		CURRENTLY SELCTED{{ selectedCourse.name }}
 		<br>
-		<TheSchedule></TheSchedule>
+		<TheSchedule :selectedCourse=selectedCourse :courses=courses></TheSchedule>
   </div>
 </template>
 
@@ -45,11 +45,6 @@ export default {
 			if (this.newCourse) {
 				this.courses.push({
 					name: this.newCourse,
-					monday: null,
-					tuesday: null,
-					wednesday: null,
-					thursday: null,
-					friday: null,
 				});
 				this.newCourse = null;
 			}
