@@ -26,6 +26,18 @@ export default {
 
 	},
 
+	watch: {
+		courses: function() {
+			if (this.courses.includes(this.course) && this.courseIndex >=
+				this.courses.length) {
+				this.courseIndex -= 1;
+			}
+
+
+		}
+
+	},
+
 	computed: {
 		courseExists: function() {
 			try {
@@ -44,27 +56,25 @@ export default {
 	methods: {
 		fillFirstSlot: function() {
 			this.filled = true;
-			this.pickColor();
+			this.setCourse();
 		},
 		changeSlot: function() {
 			if (this.addToggle) {
 				this.filled = true;
-				this.pickColor();
+				this.setCourse();
 			}
 
 			else if (this.removeToggle) {
 				this.filled = false;
-				this.pickColor();
+				this.setCourse();
 			}
-
-
 		},
 
 		unfillFirstSlot: function() {
 			this.filled = false;
 		},
 
-		pickColor: function() {
+		setCourse: function() {
 			this.courseIndex = (this.courses.indexOf(this.selectedCourse));
 			this.course = this.courses[this.courseIndex];
 		},
