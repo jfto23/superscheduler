@@ -80,8 +80,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .schedule {
-	margin: auto;
-	width: 50%;
+	width: 40%;
+	margin-left: 5%;
+	margin-right: 5%;
+	float: right;
 }
 
 table, td, th {
