@@ -8,8 +8,8 @@
 				<li v-for="(course,index) in courses" :key="index">
 					<ScheduleCourse :course=courses[index]>
 					</ScheduleCourse>
-					<button class=course-btn @click="removeCourse(index)"> Remove</button>
-					<button class=course-btn @click="selectCourse(index)"> Select</button>
+					<button class=course-btn @click="removeCourse(index)">Remove</button>
+					<button class=course-btn @click="selectCourse(index)">Select</button>
 				</li>
 			</ul>
 			{{ selectedCourse.name }}

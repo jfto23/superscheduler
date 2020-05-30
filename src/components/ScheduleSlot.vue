@@ -28,9 +28,9 @@ export default {
 
 	watch: {
 		courses: function() {
-			if (this.courses.includes(this.course) && this.courseIndex >=
-				this.courses.length) {
-				this.courseIndex -= 1;
+			if (this.courses.includes(this.course)) {
+				this.updateIndex();
+
 			}
 
 
@@ -76,7 +76,11 @@ export default {
 
 		setCourse: function() {
 			this.courseIndex = (this.courses.indexOf(this.selectedCourse));
-			this.course = this.courses[this.courseIndex];
+			this.course = this.selectedCourse;
+		},
+
+		updateIndex: function() {
+			this.courseIndex = (this.courses.indexOf(this.course));
 		},
 
 		applyColor: function() {

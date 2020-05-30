@@ -81,9 +81,9 @@ export default {
 <style scoped>
 .schedule {
 	width: 40%;
-	margin-left: 5%;
-	margin-right: 5%;
-	float: right;
+	margin-top: 5%;
+	margin-left: 10%;
+	float: left;
 }
 
 table, td, th {
