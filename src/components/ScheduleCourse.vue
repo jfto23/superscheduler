@@ -1,11 +1,6 @@
 <template>
   <div>
 		{{ course.name }}
-		{{ course.monday }}
-		{{ course.tuesday }}
-		{{ course.wednesday }}
-		{{ course.thursday }}
-		{{ course.friday }}
   </div>
 </template>
 

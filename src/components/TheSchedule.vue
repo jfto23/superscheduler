@@ -25,8 +25,6 @@
 
 			</tbody>
 		</table>
-		{{ addToggle }}
-		{{ removeToggle }}
   </div>
 </template>
 
