@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="nord-theme">
+  <div id="app" class="light-theme">
     <ScheduleForm>
     </ScheduleForm>
   </div>
@@ -33,6 +33,13 @@ export default {
 	--font-color: #eceff4;
 	--off-color: #4c566a;
 	--border-color: #3b4252;
+}
+
+.dark-theme {
+	--main-color: #181a1b;
+	--font-color: #e8e6e3;
+	--off-color: #1c1e1f;
+	--border-color: black;
 }
 
 #app {

@@ -19,7 +19,7 @@ export default {
 
 	data() {
 		return {
-			filled: false,
+			filled: false ,
 			courseIndex: null,
 			course: { name: "", courseId: null},
 		}
@@ -40,9 +40,16 @@ export default {
 				this.courseIndex = null;
 				this.filled = false;
 			}
+		},
 
-
+		filled: function() {
+			if (!this.filled) {
+				this.course = { name: null, courseId: null };
+				this.courseIndex = null;
+				this.saveData();
+			}
 		}
+
 
 	},
 
@@ -123,24 +130,18 @@ export default {
 			const parsedCourse = JSON.stringify(this.course);
 
 			localStorage["courseIndex"+this.id] = this.courseIndex;
-			localStorage["filled"+this.id] = this.filled;
+			localStorage.setItem("filled"+this.id, JSON.stringify(this.filled));
 			localStorage.setItem("course"+this.id, parsedCourse);
 		},
 
 	},
 
-	async mounted() {
+	mounted() {
 		if (localStorage.getItem("course"+this.id)) {
-			try {
-				this.course = await JSON.parse(localStorage.getItem("course"+ this.id));
-				this.courseIndex = await parseInt(localStorage["courseIndex" + this.id])
-				this.filled = await !!localStorage["filled" + this.id]
-			}
-			catch(e) {
-				localStorage.removeItem("courses");
-			}
+			this.filled = JSON.parse(localStorage.getItem("filled" + this.id));
+			this.course = JSON.parse(localStorage.getItem("course"+ this.id));
+			this.courseIndex = parseInt(localStorage["courseIndex" + this.id])
 		}
-
 
 	}
 
