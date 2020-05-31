@@ -110,13 +110,14 @@ export default {
 }
 
 input {
-	background-color: #3b4252;
 	border: none;
 	padding: 8px;
-	border-radius: 8px;
 	color: white;
 	font-size: 1.25rem;
 	width: 50%;
+	border-radius: 3px;
+	background: #2e3440;
+	box-shadow: 2px 2px 5px 1px #14161c;
 }
 
 button {
@@ -142,17 +143,17 @@ input:focus{
 }
 li {
 	font-size: 1.5rem;
-	border: 2px solid #3b4252;
 	padding: 10px;
 	overflow: hidden;
 	width: 40%;
 	border-radius: 10px;
-	margin: 2px;
+	margin: 10px;
+	box-shadow: 2px 2px 5px 1px #14161c;
 
 }
 
 .selected {
-	border: 2px solid #8fbcbb;
+	border: 4px solid #3b4252;
 }
 
 .active0 {
