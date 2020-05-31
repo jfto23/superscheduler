@@ -106,31 +106,29 @@ export default {
 	float: right;
 	text-align: left;
 	margin: 5%;
-
 }
 
 input {
 	border: none;
 	padding: 8px;
-	color: white;
+	color: var(--font-color);
 	font-size: 1.25rem;
 	width: 50%;
 	border-radius: 3px;
-	background: #2e3440;
+	background: var(--main-color);
 	box-shadow: 2px 2px 5px 1px #14161c;
 }
 
 button {
-	background-color:#2e3440;
+	background-color: var(--main-color);
 	border: none;
-	border-bottom: 4px solid #3b4252;
-	color: white;
+	color: var(--off-color);
 	font-size: 1rem;
 	margin: 3px;
 }
 
 button:hover {
-	border-bottom: 4px solid white;
+	color: var(--font-color);
 }
 
 .course-btn {
@@ -153,7 +151,7 @@ li {
 }
 
 .selected {
-	border: 4px solid #3b4252;
+	border: 3px solid var(--border-color);
 }
 
 .active0 {
@@ -172,9 +170,6 @@ li {
 .active4 {
 	color: #bf616a;
 }
-h3 {
-  margin: 40px 0 0;
-}
 ul {
   list-style-type: none;
   padding: 0;
@@ -183,8 +178,5 @@ ul {
 .add-btn {
 	margin: 10px;
 
-}
-a {
-  color: #42b983;
 }
 </style>

@@ -81,11 +81,10 @@ export default {
 	width: 40%;
 	margin-top: 5%;
 	margin-left: 10%;
-	float: left;
 }
 
 table, td, th {
-	border: 1px solid #4C566A;
+	border: 1px solid var(--border-color);
 }
 
 
@@ -99,6 +98,7 @@ table {
     -moz-user-select: none;
     -ms-user-select: none;
 		user-select: none;
+		box-shadow: 2px 2px 5px 1px #14161c;
 }
 td {
 	width: 25%;
@@ -112,17 +112,7 @@ th {
 }
 
 tr:nth-child(even) {
-	background-color: #3b4252;
+	background-color: var(--off-color);
 }
 
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-a {
-  color: #42b983;
-}
 </style>
