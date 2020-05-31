@@ -14,13 +14,14 @@ export default {
 		removeToggle: Boolean,
 		selectedCourse: null,
 		courses: Array,
+		id: String,
 	},
 
 	data() {
 		return {
 			filled: false,
 			courseIndex: null,
-			course: { name: "" },
+			course: { name: "", courseId: null},
 		}
 
 
@@ -28,9 +29,16 @@ export default {
 
 	watch: {
 		courses: function() {
-			if (this.courses.includes(this.course)) {
+			if (this.courseExists) {
 				this.updateIndex();
+			}
+		},
 
+		courseExists: function() {
+			if (!this.courseExists) {
+				this.course = { name: null, courseId: null };
+				this.courseIndex = null;
+				this.filled = false;
 			}
 
 
@@ -40,12 +48,18 @@ export default {
 
 	computed: {
 		courseExists: function() {
-			try {
-				return this.courses.includes(this.course);
-			}
-			catch(err) {
-				return false
-			}
+				for (let course of this.courses) {
+					try{
+						if (course.courseId === this.course.courseId) {
+							return true;
+						}
+					}
+					catch(e) {
+						return false;
+					}
+
+				}
+				return false;
 
 		},
 
@@ -72,15 +86,23 @@ export default {
 
 		unfillFirstSlot: function() {
 			this.filled = false;
+			this.setCourse();
 		},
 
 		setCourse: function() {
 			this.courseIndex = (this.courses.indexOf(this.selectedCourse));
 			this.course = this.selectedCourse;
+			this.saveData();
 		},
 
 		updateIndex: function() {
-			this.courseIndex = (this.courses.indexOf(this.course));
+				for (let course of this.courses) {
+						if (course.courseId === this.course.courseId) {
+							this.courseIndex = this.courses.indexOf(course);
+						}
+
+				}
+				this.saveData();
 		},
 
 		applyColor: function() {
@@ -95,7 +117,30 @@ export default {
 
 			}
 
+		},
+
+		saveData: function() {
+			const parsedCourse = JSON.stringify(this.course);
+
+			localStorage["courseIndex"+this.id] = this.courseIndex;
+			localStorage["filled"+this.id] = this.filled;
+			localStorage.setItem("course"+this.id, parsedCourse);
+		},
+
+	},
+
+	async mounted() {
+		if (localStorage.getItem("course")) {
+			try {
+				this.course = await JSON.parse(localStorage.getItem("course"+ this.id));
+				this.courseIndex = await parseInt(localStorage["courseIndex" + this.id])
+				this.filled = await !!localStorage["filled" + this.id]
+			}
+			catch(e) {
+				localStorage.removeItem("courses");
+			}
 		}
+
 
 	}
 

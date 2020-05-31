@@ -2,7 +2,7 @@
   <div>
 		<div class=schedule-form>
 			<input @keyup.enter="addCourse" type="text" v-model="newCourse"> 
-			<button @click="addCourse">Add</button>
+			<button class=add-btn @click="addCourse">Add</button>
 			<br>
 			<ul>
 				<li v-for="(course,index) in courses" :key="index" :class=" {
@@ -41,6 +41,7 @@ export default {
 		newCourse: null,
 		selectedCourse: {
 			name: null,
+			courseId: null,
 			},
 		selectedIndex: null,
 		}
@@ -52,18 +53,21 @@ export default {
 			if (this.newCourse) {
 				this.courses.push({
 					name: this.newCourse,
+					courseId: Date.now(),
 				});
 				this.selectCourse(this.courses.length-1);
 				this.newCourse = null;
+				this.saveCourses();
 			}
 		},
 
 		removeCourse: function(index) {
 			if (this.selectedCourse === this.courses[index]) {
-				this.selectedCourse = { name: null };
+				this.selectedCourse = { name: null, courseId: null };
 				this.selectedIndex = null;
 			}
 			this.courses.splice(index,1);
+			this.saveCourses();
 		},
 
 		selectCourse: function(index) {
@@ -71,8 +75,27 @@ export default {
 			this.selectedIndex = index;
 		},
 
+		saveCourses: function() {
+			const parsed = JSON.stringify(this.courses);
+			localStorage.setItem("courses", parsed);
+
+		}
+
 
 	},
+
+	mounted() {
+		if (localStorage.getItem("courses")) {
+			try {
+				this.courses = JSON.parse(localStorage.getItem("courses"));
+			}
+			catch(e) {
+				localStorage.removeItem("courses");
+			}
+
+		}
+
+	}
 }
 </script>
 
@@ -93,6 +116,7 @@ input {
 	border-radius: 8px;
 	color: white;
 	font-size: 1.25rem;
+	width: 50%;
 }
 
 button {
@@ -155,6 +179,10 @@ ul {
   padding: 0;
 }
 
+.add-btn {
+	margin: 10px;
+
+}
 a {
   color: #42b983;
 }

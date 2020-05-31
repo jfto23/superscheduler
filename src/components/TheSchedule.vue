@@ -19,7 +19,7 @@
 						v-for="(day, day_index) in week"
 						:key="day_index"
 						>
-						<ScheduleSlot :courses=courses :selectedCourse=selectedCourse :addToggle=addToggle :removeToggle=removeToggle></ScheduleSlot>	
+						<ScheduleSlot :id="''+day_index+time_index" :courses=courses :selectedCourse=selectedCourse :addToggle=addToggle :removeToggle=removeToggle></ScheduleSlot>	
 					</td>
 				</tr>
 
@@ -100,8 +100,11 @@ table {
     -ms-user-select: none;
 		user-select: none;
 }
-td{
+td {
 	width: 25%;
+}
+th {
+	font-size: 1vw;
 }
 
 .hour {
