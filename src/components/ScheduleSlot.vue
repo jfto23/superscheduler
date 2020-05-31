@@ -130,7 +130,7 @@ export default {
 	},
 
 	async mounted() {
-		if (localStorage.getItem("course")) {
+		if (localStorage.getItem("course"+this.id)) {
 			try {
 				this.course = await JSON.parse(localStorage.getItem("course"+ this.id));
 				this.courseIndex = await parseInt(localStorage["courseIndex" + this.id])
