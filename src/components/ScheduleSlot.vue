@@ -12,7 +12,7 @@ export default {
 	props: {
 		addToggle: Boolean,
 		removeToggle: Boolean,
-		selectedCourse: null,
+		selectedCourse: Object,
 		courses: Array,
 		id: String,
 	},
@@ -113,16 +113,22 @@ export default {
 		},
 
 		applyColor: function() {
+			let className = "active" + this.courseIndex.toString();
+			return {
+				[className]: this.filled,
+				"removed": this.filled && !this.courseExists,
+			}
+
+			/*
 			return {
 				'active0': this.filled && this.courseIndex===0,
 				'active1': this.filled && this.courseIndex===1,
 				'active2': this.filled && this.courseIndex===2,
 				'active3': this.filled && this.courseIndex===3,
 				'active4': this.filled && this.courseIndex===4,
-				'active5': this.filled && this.courseIndex===5,
 				'removed': this.filled && !this.courseExists,
-
 			}
+			*/
 
 		},
 
