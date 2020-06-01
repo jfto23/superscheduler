@@ -113,10 +113,10 @@ export default {
 		},
 
 		applyColor: function() {
-			let className = "active" + this.courseIndex.toString();
+			let className = "active" + this.courseIndex;
 			return {
 				[className]: this.filled,
-				"removed": this.filled && !this.courseExists,
+				'removed': this.filled && !this.courseExists,
 			}
 
 			/*
