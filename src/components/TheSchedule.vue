@@ -99,6 +99,7 @@ table {
     -ms-user-select: none;
 		user-select: none;
 		box-shadow: 2px 2px 5px 1px #14161c;
+		background-color: var(--table-color);
 }
 td {
 	width: 25%;

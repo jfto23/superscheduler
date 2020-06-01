@@ -2,15 +2,15 @@
   <div>
 		<div class=schedule-form>
 			<input @keyup.enter="addCourse" type="text" v-model="newCourse"> 
-			<button class=add-btn @click="addCourse">Add</button>
+			<button class=add-btn @click="addCourse">ADD</button>
 			<br>
 			<ul>
 				<li v-for="(course,index) in courses" :key="index" :class=" {
 				'selected': index===selectedIndex}" @dblclick="selectCourse(index)">
 					<ScheduleCourse :course=courses[index]>
 					</ScheduleCourse>
-					<button class=course-btn @click="removeCourse(index)">Remove</button>
-					<button class=course-btn @click="selectCourse(index)">Select</button>
+					<button class=course-btn @click="removeCourse(index)">REMOVE</button>
+					<button class=course-btn @click="selectCourse(index)">SELECT</button>
 					<span :class="{'active0': index===0, 
 					'active1':index===1, 
 					'active2':index===2, 
@@ -115,14 +115,14 @@ input {
 	font-size: 1.25rem;
 	width: 50%;
 	border-radius: 3px;
-	background: var(--main-color);
+	background: var(--input-color);
 	box-shadow: 2px 2px 5px 1px #14161c;
 }
 
 button {
 	background-color: var(--main-color);
 	border: none;
-	color: var(--off-color);
+	color: var(--btn-font-color);
 	font-size: 1rem;
 	margin: 3px;
 }
@@ -133,6 +133,7 @@ button:hover {
 
 .course-btn {
 	float: right;
+	background-color: var(--card-color);
 }
 
 input:focus{
@@ -140,6 +141,7 @@ input:focus{
 
 }
 li {
+	background-color: var(--card-color);
 	font-size: 1.5rem;
 	padding: 10px;
 	overflow: hidden;

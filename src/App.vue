@@ -1,5 +1,10 @@
 <template>
-  <div id="app" class="nord-theme">
+  <div id="app" :class="theme">
+		<select id="theme-menu" v-model="theme">
+			<option>nord</option>
+			<option>light</option>
+			<option>dark</option>
+		</select>
     <ScheduleForm>
     </ScheduleForm>
   </div>
@@ -15,31 +20,63 @@ export default {
     ScheduleForm
   },
 
+	data() {
+		return {
+			theme: "nord"
+
+		}
+
+	}
+
 
 
 }
 </script>
 
 <style>
-.light-theme {
+.light {
 	--main-color: #f5f5f5;
+	--card-color: #f5f5f5;
+	--input-color: #f5f5f5;
+	--table-color: #f5f5f5;
+	--btn-font-color: gray;
 	--font-color: black;
 	--off-color: #d6d6d6;
 	--border-color: #bababa;
 }
 
-.nord-theme {
+.nord {
 	--main-color: #2e3440;
+	--card-color: #2e3440;
+	--input-color: #2e3440;
+	--table-color: #2e3440;
+	--btn-font-color: #4c566a;
 	--font-color: #eceff4;
 	--off-color: #4c566a;
 	--border-color: #3b4252;
 }
 
-.dark-theme {
-	--main-color: #181a1b;
+.dark {
+	--main-color: #303030;
+	--card-color: #303030;
+	--input-color: #303030;
+	--table-color: #212121;
+	--btn-font-color: gray;
 	--font-color: #e8e6e3;
-	--off-color: #1c1e1f;
-	--border-color: black;
+	--off-color: #424242;
+	--border-color: #303030;
+}
+
+#theme-menu {
+	margin: 15px;
+	background-color: var(--main-color);
+	border: none;
+	box-shadow: 2px 2px 5px 1px #14161c;
+	color: var(--font-color);
+	font-size: 1.10rem;
+	border-radius: 5px;
+	padding: 5px;
+
 }
 
 #app {

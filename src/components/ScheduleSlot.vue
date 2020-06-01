@@ -1,7 +1,6 @@
 <template>
   <div @mousedown.left="fillFirstSlot" @mouseover="changeSlot"
 		@mousedown.right="unfillFirstSlot" :class="applyColor()">
-
   </div>
 </template>
 
@@ -118,17 +117,6 @@ export default {
 				[className]: this.filled,
 				'removed': this.filled && !this.courseExists,
 			}
-
-			/*
-			return {
-				'active0': this.filled && this.courseIndex===0,
-				'active1': this.filled && this.courseIndex===1,
-				'active2': this.filled && this.courseIndex===2,
-				'active3': this.filled && this.courseIndex===3,
-				'active4': this.filled && this.courseIndex===4,
-				'removed': this.filled && !this.courseExists,
-			}
-			*/
 
 		},
 
