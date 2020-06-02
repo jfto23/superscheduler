@@ -205,11 +205,11 @@ tbody [rowspan],
 tbody [rowspan] ~ th,
 tbody [rowspan] ~ td,
 tfoot {
-	border-top: 2px solid black;
+	border-top: 1px solid red;
 }
 
-table td + td, table th + th {
-	border-left: 2px solid black;
+table td + td {
+	border-left: 1px solid red;
 }
 
 </style>

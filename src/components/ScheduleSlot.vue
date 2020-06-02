@@ -162,6 +162,15 @@ export default {
 .active4 {
 	background-color: #bf616a;
 }
+.active5 {
+	background-color: #8fbcbb;
+}
+.active6 {
+	background-color: #5e81ac;
+}
+.active7 {
+	background-color: #81a1c1;
+}
 
 .removed {
 	background-color: initial;

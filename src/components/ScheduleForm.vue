@@ -16,6 +16,9 @@
 					'active2':index===2, 
 					'active3':index===3, 
 					'active4':index===4, 
+					'active5':index===5, 
+					'active6':index===6, 
+					'active7':index===7, 
 						}">&#9632;</span>
 				</li>
 			</ul>
@@ -50,7 +53,7 @@ export default {
 
 	methods: {
 		addCourse: function() {
-			if (this.newCourse) {
+			if (this.newCourse && this.courses.length <8) {
 				this.courses.push({
 					name: this.newCourse,
 					courseId: Date.now(),
@@ -187,6 +190,15 @@ ul > li:first-child {
 }
 .active4 {
 	color: #bf616a;
+}
+.active5 {
+	color: #8fbcbb;
+}
+.active6 {
+	color: #5e81ac;
+}
+.active7 {
+	color: #81a1c1;
 }
 
 ul {
