@@ -1,6 +1,7 @@
 <template>
   <div id="app" :class="theme">
-		<select id="theme-menu" v-model="theme">
+		Theme:
+		<select v-model="theme">
 			<option>nord</option>
 			<option>light</option>
 			<option>dark</option>
@@ -23,11 +24,23 @@ export default {
 	data() {
 		return {
 			theme: "nord"
-
 		}
+	},
 
-	}
+	watch: {
+		theme: function() {
+			localStorage["theme"] = this.theme;
+		}
+	},
 
+	mounted() {
+		if (localStorage.getItem("theme")) {
+			this.theme = localStorage.getItem("theme");
+		}
+	},
+
+
+	
 
 
 }
@@ -67,7 +80,7 @@ export default {
 	--border-color: #303030;
 }
 
-#theme-menu {
+select {
 	margin: 15px;
 	background-color: var(--main-color);
 	border: none;
@@ -76,8 +89,21 @@ export default {
 	font-size: 1.10rem;
 	border-radius: 5px;
 	padding: 5px;
-
 }
+
+a {
+	margin: 15px;
+	background-color: var(--main-color);
+	border: none;
+	box-shadow: 2px 2px 5px 1px #14161c;
+	color: var(--font-color);
+	font-size: 1.10rem;
+	border-radius: 5px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
