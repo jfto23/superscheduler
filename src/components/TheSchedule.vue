@@ -201,6 +201,11 @@ tr:nth-child(even) {
 	background-color: var(--off-color);
 }
 
+tbody [rowspan] {
+	border-right: 2px solid black;
+
+}
+
 tbody [rowspan],
 tbody [rowspan] ~ th,
 tbody [rowspan] ~ td,
