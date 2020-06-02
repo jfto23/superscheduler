@@ -1,34 +1,35 @@
 <template>
-	<div>
-		From: <select v-model.number="startTime">
-			<option>0</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-			<option>8</option>
-			<option>9</option>
-			<option>10</option>
-			<option>11</option>
-		</select>
-		To: <select v-model.number="endTime">
-			<option>12</option>
-			<option>13</option>
-			<option>14</option>
-			<option>15</option>
-			<option>16</option>
-			<option>17</option>
-			<option>18</option>
-			<option>19</option>
-			<option>20</option>
-			<option>21</option>
-			<option>22</option>
-			<option>23</option>
-		</select>
-		<div>
+	<div class=container>
+		<div class=menu>
+			From:<select v-model.number="startTime">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+			</select>
+			To:<select v-model.number="endTime">
+				<option>12</option>
+				<option>13</option>
+				<option>14</option>
+				<option>15</option>
+				<option>16</option>
+				<option>17</option>
+				<option>18</option>
+				<option>19</option>
+				<option>20</option>
+				<option>21</option>
+				<option>22</option>
+				<option>23</option>
+			</select>
+			<br>
 			Include weekends:
 			<select v-model="includeWeekends">
 				<option>false</option>
@@ -127,10 +128,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+	display: grid;
+	grid-template-columns: 1fr 2fr 3fr;
+
+}
 .schedule {
-	width: 40%;
-	margin-top: 5%;
-	margin-left: 10%;
 }
 
 table, td, th {
@@ -139,23 +142,21 @@ table, td, th {
 
 
 table {
-		table-layout: fixed;
-		width: 100%;
-		border-collapse: collapse;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-		user-select: none;
-		box-shadow: 2px 2px 5px 1px #14161c;
-		background-color: var(--table-color);
-}
-td {
-	width: 25%;
+	margin-top: 20%;
+	width: 100%;
+	border-collapse: collapse;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	box-shadow: 2px 2px 5px 1px #14161c;
+	background-color: var(--table-color);
 }
 th {
 	font-size: 1vw;
+	padding: 10px;
 }
 
 .hour {
@@ -165,5 +166,6 @@ th {
 tr:nth-child(even) {
 	background-color: var(--off-color);
 }
+
 
 </style>

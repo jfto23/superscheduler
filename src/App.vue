@@ -1,11 +1,12 @@
 <template>
   <div id="app" :class="theme">
-		Theme:
-		<select v-model="theme">
-			<option>nord</option>
-			<option>light</option>
-			<option>dark</option>
-		</select>
+		<div class=theme-selector>
+			<select v-model="theme">
+				<option>nord</option>
+				<option>light</option>
+				<option>dark</option>
+			</select>
+		</div>
     <ScheduleForm>
     </ScheduleForm>
   </div>
@@ -113,6 +114,14 @@ a {
 	color: var(--font-color);
 	min-height: 100vh;
 	overflow: auto;
+}
+
+.theme-selector {
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: 100;
+
 }
 body {
 	margin: 0px;

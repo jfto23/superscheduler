@@ -102,10 +102,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .schedule-form {
+	position: absolute;
+	right: 0;
 	width: 40%;
-	float: right;
-	text-align: left;
-	margin: 5%;
+	margin-top: 8%;
+
 }
 
 input {
