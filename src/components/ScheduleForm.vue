@@ -154,6 +154,12 @@ li {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	box-shadow: 2px 2px 5px 1px #14161c;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none; 
+	-khtml-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none;
 
 }
 

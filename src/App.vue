@@ -90,6 +90,7 @@ select {
 	font-size: 1.10rem;
 	border-radius: 5px;
 	padding: 5px;
+	-moz-appearance: none;
 }
 
 a {

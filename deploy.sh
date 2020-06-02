@@ -2,7 +2,8 @@
 
 set -e
 
-npm run build
+sudo npm run build
+sudo chmod a+rwx ~/Documents/superscheduler/dist/
 
 cd dist
 
