@@ -2,7 +2,7 @@
 
 _superscheduler_ is a schedule builder built with VueJS. Live version [here](https://jfto23.github.io/superscheduler/)
 
-![](https://github.com/jfto23/superscheduler/blob/master/superscheduler_nord.png)
+![](https://github.com/jfto23/superscheduler/blob/master/superscheduler.png)
 
 ## Project setup
 ```
