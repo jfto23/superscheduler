@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class=main-container>
 		<div class=schedule-form>
 			<input @keyup.enter="addCourse" type="text" v-model="newCourse"> 
 			<button class=add-btn @click="addCourse">ADD</button>
@@ -101,11 +101,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main-container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
 .schedule-form {
-	position: absolute;
-	right: 0;
-	width: 40%;
-	margin-top: 8%;
+	grid-column: 2/3;
+	margin-top: 20%;
+	justify-self:center;
 
 }
 
@@ -114,7 +118,7 @@ input {
 	padding: 8px;
 	color: var(--font-color);
 	font-size: 1.25rem;
-	width: 50%;
+	width: 300px;
 	border-radius: 3px;
 	background: var(--input-color);
 	box-shadow: 2px 2px 5px 1px #14161c;
@@ -146,10 +150,16 @@ li {
 	font-size: 1.5rem;
 	padding: 10px;
 	overflow: hidden;
-	width: 40%;
+	width: 300px;
 	border-radius: 10px;
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	box-shadow: 2px 2px 5px 1px #14161c;
+
+}
+
+ul > li:first-child {
+	margin-top: 20px;
 
 }
 
