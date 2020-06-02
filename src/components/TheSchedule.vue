@@ -104,6 +104,20 @@ export default {
 		}
 	},
 
+	watch: {
+		startTime: function() {
+			localStorage["startTime"] = this.startTime;
+		},
+
+		endTime: function() {
+			localStorage["endTime"] = this.endTime;
+		},
+
+		includeWeekends: function() {
+			localStorage["includeWeekends"] = this.includeWeekends;
+		},
+
+	},
 
 	methods: {
 		addToggleOn: function() {
@@ -122,6 +136,19 @@ export default {
 			this.removeToggle = false;
 		},
 
+	},
+
+	mounted() {
+		if (localStorage.getItem("startTime")) {
+			this.startTime = parseInt(localStorage.getItem("startTime"));
+		}
+		if (localStorage.getItem("endTime")) {
+			this.endTime = parseInt(localStorage.getItem("endTime"));
+		}
+		if (localStorage.getItem("includeWeekends")) {
+			this.includeWeekends = localStorage.getItem("includeWeekends");
+		}
+
 	}
 
 	
@@ -132,12 +159,15 @@ export default {
 <style scoped>
 .grid-item {
 	grid-row: 1/2;
-
 }
+
 .container {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
+}
 
+.menu {
+	margin-left: 10px;
 }
 
 
@@ -159,6 +189,7 @@ table {
 	box-shadow: 2px 2px 5px 1px #14161c;
 	background-color: var(--table-color);
 }
+
 th {
 	font-size: 1vw;
 	padding: 10px;
@@ -171,6 +202,5 @@ th {
 tr:nth-child(even) {
 	background-color: var(--off-color);
 }
-
 
 </style>

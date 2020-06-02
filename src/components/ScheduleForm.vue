@@ -1,7 +1,7 @@
 <template>
   <div class=main-container>
 		<div class=schedule-form>
-			<input @keyup.enter="addCourse" type="text" v-model="newCourse"> 
+			<input autofocus @keyup.enter="addCourse" type="text" v-model="newCourse"> 
 			<button class=add-btn @click="addCourse">ADD</button>
 			<br>
 			<ul>
@@ -149,7 +149,6 @@ li {
 	background-color: var(--card-color);
 	font-size: 1.5rem;
 	padding: 10px;
-	overflow: hidden;
 	width: 300px;
 	border-radius: 10px;
 	margin-top: 10px;
@@ -183,6 +182,7 @@ ul > li:first-child {
 .active4 {
 	color: #bf616a;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
