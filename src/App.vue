@@ -82,6 +82,7 @@ export default {
 }
 
 select {
+	-webkit-appearance: none;
 	margin: 15px;
 	background-color: var(--main-color);
 	border: none;

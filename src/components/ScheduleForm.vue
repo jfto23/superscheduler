@@ -117,6 +117,7 @@ export default {
 }
 
 input {
+	-webkit-appearance: none;
 	border: none;
 	padding: 8px;
 	color: var(--font-color);
